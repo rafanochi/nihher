@@ -17,10 +17,14 @@
       in
       {
         formatter = pkgs.nixfmt-tree;
+        devShells = {
+          default = import ./shell.nix self { inherit pkgs; };
+        };
         packages = {
           default = pkgs.callPackage ./. { inherit pkgs; };
         };
       }
+
     );
 
 }
